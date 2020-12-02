@@ -42,6 +42,9 @@ string = "ffmpeg "
 for i in range(int(nfiles)):
     string = string + "-i {} ".format(files[i])
 
+# Para conservar los codecs
+string = string + "-c copy "
+
 # Añadimos los canales para cada archivo
 for i in range(int(nfiles)):
     for j in range(int(channels[i])):
