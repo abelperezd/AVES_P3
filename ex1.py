@@ -34,5 +34,5 @@ string = 'ffmpeg -i {}1{} -vf "ass=subs.ass" {}1_sub.mp4'.format(name, ext, name
 subprocess.call(string, shell=True)
 
 # Añadimos el vídeo, las pistas de audio y los subtítulos a un unico container
-string = 'ffmpeg -i {}1{} -i {}1_mono.mp3 -i {}1_br.mp3 -map 0:0 -map 0:1 -map 1:0 -map 2:0 -vf "ass=subs.ass" {}1_container.mp4'.format(name, ext, name, name, name)
+string = 'ffmpeg -i {}1{} -i {}1_mono.mp3 -i {}1_br.mp3 -c copy -map 0:0 -map 0:1 -map 1:0 -map 2:0 -vf "ass=subs.ass" {}1_container.mp4'.format(name, ext, name, name, name)
 subprocess.call(string, shell=True)
